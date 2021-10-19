@@ -14,10 +14,13 @@ const QUERY = `{
             websiteUrl
             createdAt
             followers {
-            totalCount
+              totalCount
             }
             following {
-            totalCount
+              totalCount
+            }
+            repositories {
+              totalCount
             }
         }
     }`;

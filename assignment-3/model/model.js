@@ -25,5 +25,8 @@ export default class ProfileModel {
     this.bio = userData.bio;
     this.website = userData.websiteUrl;
     this.createdAt = userData.createdAt;
+    this.repoCount = userData.repositories.totalCount
+    this.followerCount = userData.followers.totalCount
+    this.followingCOunt = userData.following.totalCount
   }
 }

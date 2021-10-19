@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import {
-  Text, View, SafeAreaView, Image, StyleSheet,
+  Text, View, SafeAreaView, Image, StyleSheet, Button
 } from 'react-native';
 import ApiRequest from '../model/APIRequest';
 import ProfileModel from '../model/model';
+import Navigator from '../Navigator';
+import FollowerView from './FollwerView';
 
 /**
  * screen for user profile
  */
-const ProfileView = () => {
+const ProfileView = ({navigation}) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   let test;
@@ -44,14 +46,28 @@ const ProfileView = () => {
               </View>
             </View>
             <View style={{
-              marginLeft: 30, width: 350, marginTop: 200, justifyContent: 'center',
+              marginLeft: 25, width: 350, marginTop: 200, justifyContent: 'center',
             }}
             >
               <Text style={profileStyle.regularText}>
-                created at:
-                {data.createdAt}
+                created at:   {data.createdAt}
               </Text>
               <Text style={profileStyle.regularText}>{data.bio}</Text>
+              <Text style={profileStyle.regularText}>total number of followers: {data.followerCount}</Text>
+              <Button
+                title= 'Go to Folower'
+                onPress={() => navigation.navigate('Navigator', { screen: 'Follower' })}
+              />
+              <Text style={profileStyle.regularText}>total number of followings: {data.followingCount}</Text>
+              <Button
+                title="Go to Following"
+                onPress={() => navigation.navigate('Navigator', { screen: 'Following' })}
+              />
+              <Text style={profileStyle.regularText}>total number of public repositories: {data.repoCount}</Text>
+              <Button
+                title="Go to Repo"
+                onPress={() => navigation.navigate('Navigator', { screen: 'Repo' })}
+              />
             </View>
           </View>
         )}

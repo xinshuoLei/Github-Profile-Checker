@@ -1,7 +1,5 @@
 import { Alert } from 'react-native';
 
-const AUTH = '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';
-
 const QUERY = `{
         user(login: "IjzerenHein") {
             avatarUrl

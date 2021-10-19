@@ -15,7 +15,11 @@ export default class RepoModel {
      * @param {*} json json response from api
      */
   parseJson(json) {
-    const userData = json.data.user;
+    // error checking
+    const userData = json.data.user ? json.data.user : null;
+    if (userData == null) {
+      return;
+    }
     this.repos = userData.repositories.node;
   }
 }

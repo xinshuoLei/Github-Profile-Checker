@@ -19,8 +19,17 @@ const QUERY = `{
             following {
               totalCount
             }
-            repositories {
+            repositories (first: 100){
               totalCount
+              nodes {
+                name
+                owner {
+                  ... on User {
+                    login
+                  }
+                }
+                description
+              }
             }
         }
     }`;

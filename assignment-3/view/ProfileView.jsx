@@ -4,9 +4,7 @@ import {
   Text, View, SafeAreaView, Image, StyleSheet, Button
 } from 'react-native';
 import ApiRequest from '../model/APIRequest';
-import ProfileModel from '../model/model';
-import Navigator from '../Navigator';
-import FollowerView from './FollwerView';
+import ProfileModel from '../model/ProfileModel';
 
 /**
  * screen for user profile

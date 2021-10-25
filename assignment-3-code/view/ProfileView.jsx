@@ -12,7 +12,6 @@ import ProfileModel from '../model/ProfileModel';
 const ProfileView = ({navigation}) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-  let test;
 
   // call api request to get data needed
   useEffect(() => {
@@ -44,7 +43,7 @@ const ProfileView = ({navigation}) => {
               </View>
             </View>
             <View style={{
-              marginLeft: 25, width: 350, marginTop: 200, justifyContent: 'center',
+              marginLeft: 45, width: 400, marginTop: 50, justifyContent: 'center',
             }}
             >
               <Text style={profileStyle.regularText}>

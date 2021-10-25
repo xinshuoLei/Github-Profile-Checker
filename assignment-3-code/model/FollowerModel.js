@@ -1,5 +1,5 @@
 /**
- * class for repo model
+ * class for follower and following model
  */
 export default class RepoModel {
   /**
@@ -20,6 +20,7 @@ export default class RepoModel {
     if (userData == null) {
       return;
     }
-    this.repos = userData.repositories.node;
+    this.followers = userData.followers.node;
+    this.following = userData.following.node;
   }
 }

@@ -16,7 +16,7 @@ export default class ProfileModel {
      */
   parseJson(json) {
     // error checking
-    const userData = json.data.user ? json.data.user : null;
+    const userData = json.data.user;
     if (userData == null) {
       return;
     }

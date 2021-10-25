@@ -1,5 +1,8 @@
 import { Alert } from 'react-native';
 
+const AUTH = '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';
+
+
 const QUERY = `{
         user(login: "IjzerenHein") {
             avatarUrl
@@ -11,10 +14,20 @@ const QUERY = `{
             bio
             websiteUrl
             createdAt
-            followers {
+            followers(first: 10) {
+              nodes {
+                avatarUrl
+                name
+                login
+              }
               totalCount
             }
-            following {
+            following(first: 10) {
+              nodes {
+                avatarUrl
+                name
+                login
+              }
               totalCount
             }
             repositories (first: 100){
@@ -49,11 +62,12 @@ const ApiRequest = async () => {
     .then((response) => response.json())
     .then((json) => {
       jsonData = json;
+      console.log(json)
     })
     .catch((error) => {
-      Alert.alert(error);
+      console.log("error")
     });
   return jsonData;
-};
+}
 
 export default ApiRequest;

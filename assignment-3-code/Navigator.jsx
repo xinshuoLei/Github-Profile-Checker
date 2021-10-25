@@ -45,6 +45,7 @@ const Navigator = () => (
     <Tab.Screen
       name="Profile"
       component={ProfileView}
+      initialParams = {{user: "IjzerenHein"}}
       options={{
         tabBarIcon: ({ focused }) => (
           <View>

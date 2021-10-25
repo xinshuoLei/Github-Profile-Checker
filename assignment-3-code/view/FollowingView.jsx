@@ -16,7 +16,7 @@ const FollowingView = ({navigation}) => {
 
   // call api request to get data needed
   useEffect(() => {
-    ApiRequest()
+    ApiRequest("IjzerenHein")
       .then((json) => setData(new FollowerAndFollowing(json)))
       .finally(() => setLoading(false));
   }, []);

@@ -4,7 +4,7 @@ const AUTH = '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';
 
 
 const QUERY = `{
-        user(login: "IjzerenHein") {
+        user(login: "{:USER_LOGIN:}") {
             avatarUrl
             login
             bio
@@ -45,9 +45,11 @@ const QUERY = `{
         }
     }`;
 
-const ApiRequest = async () => {
+const ApiRequest = async (user) => {
   // OAuth token
   const url = 'https://api.github.com/graphql';
+  const userLogin = "IjzerenHein"
+  const query_with_user = QUERY.replace(/\n/g, ' ').replace('{:USER_LOGIN:}', user);
   let jsonData;
   await fetch(url, {
     method: 'post',
@@ -57,7 +59,7 @@ const ApiRequest = async () => {
       // AUTH is a constant for token
       Authorization: `bearer ${AUTH}`,
     },
-    body: JSON.stringify({ query: QUERY }),
+    body: JSON.stringify({ query: query_with_user }),
   })
     .then((response) => response.json())
     .then((json) => {
@@ -65,7 +67,7 @@ const ApiRequest = async () => {
       console.log(json)
     })
     .catch((error) => {
-      console.log("error")
+      Alert.alert(error)
     });
   return jsonData;
 }

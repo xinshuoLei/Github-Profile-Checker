@@ -9,13 +9,14 @@ import ProfileModel from '../model/ProfileModel';
 /**
  * screen for user profile
  */
-const ProfileView = ({navigation}) => {
+const ProfileView = ({route, navigation}) => {
+  const user = route.params['user'];
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
   // call api request to get data needed
   useEffect(() => {
-    ApiRequest()
+    ApiRequest(user)
       .then((json) => setData(new ProfileModel(json)))
       .finally(() => setLoading(false));
   }, []);

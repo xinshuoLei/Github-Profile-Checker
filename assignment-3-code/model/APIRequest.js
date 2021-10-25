@@ -14,7 +14,7 @@ const QUERY = `{
             bio
             websiteUrl
             createdAt
-            followers(first: 10) {
+            followers(first: 100) {
               nodes {
                 avatarUrl
                 name
@@ -22,7 +22,7 @@ const QUERY = `{
               }
               totalCount
             }
-            following(first: 10) {
+            following(first: 100) {
               nodes {
                 avatarUrl
                 name

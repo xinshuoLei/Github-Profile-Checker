@@ -22,7 +22,7 @@ const ProfileView = ({navigation}) => {
 
 
   return (
-    <SafeAreaView style={{ justifyContent: 'center' }}>
+    <SafeAreaView style={{ justifyContent: 'center', alignItems: 'center'}}>
       {isLoading ? (
         // display a text indicating view is loading if loading not completed
         (<Text>Loading</Text>)
@@ -32,7 +32,7 @@ const ProfileView = ({navigation}) => {
           <View style={{ flexDirection: 'column' }}>
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
               <View style={{ alignItems: 'center', marginTop: 30 }}>
-                <Image source={{ uri: data.avatar }} style={{ width: 150, height: 150 }} />
+                <Image source={{ uri: data.avatar }} style={{ width: 150, height: 150,  }} />
               </View>
               <View style={{ marginLeft: 30, marginTop: 30 }}>
                 <Text style={profileStyle.largeText}>{data.userName ? data.userName : 'no username found'}</Text>
@@ -43,7 +43,7 @@ const ProfileView = ({navigation}) => {
               </View>
             </View>
             <View style={{
-              marginLeft: 45, width: 400, marginTop: 50, justifyContent: 'center',
+              width: 400, marginTop: 50, justifyContent: 'center',
             }}
             >
               <Text style={profileStyle.regularText}>

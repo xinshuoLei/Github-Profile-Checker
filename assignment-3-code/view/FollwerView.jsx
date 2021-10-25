@@ -28,7 +28,7 @@ const FollowerView = ({navigation}) => {
         <Image source={{ uri: item.avatarUrl }} style={followerStyle.avatar} />
         <Text style = {{fontSize: 20, marginLeft: 15, fontWeight: 'bold'}}>{item.login}</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Navigator', { screen: 'Profile' })}>
+          onPress={() => navigation.navigate('User Profile',  {user: item.login,})}>
           <Image source={require('../assets/link.png')} style = {{width: 15, height : 15, marginLeft : 5, tintColor: '#0645AD'}}/>
         </TouchableOpacity>
         <Text style = {{fontSize: 17, marginLeft: 15}}>{item.name ? item.name : 'N/A'}</Text>

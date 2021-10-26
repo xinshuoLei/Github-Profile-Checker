@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly - follower loading 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text>
+    Loading
+  </Text>
+</RCTSafeAreaView>
+`;
+
+exports[`renders correctly - following loading 1`] = `
+<RCTScrollView>
+  <View>
+    <Text>
+      Loading
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders correctly - profile loading 1`] = `
+<RCTScrollView>
+  <View>
+    <Text>
+      Loading
+    </Text>
+  </View>
+</RCTScrollView>
+`;

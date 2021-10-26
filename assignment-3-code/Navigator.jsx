@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {
-   View, Image, StyleSheet,
+  View, Image, StyleSheet,
 } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileView from './view/ProfileView';
 import RepoView from './view/RepoView';
 import FollowerView from './view/FollwerView';
 import FollowingView from './view/FollowingView';
+/* eslint-disable global-require */
 
 const Tab = createBottomTabNavigator();
 
@@ -36,7 +37,6 @@ const tabStyle = StyleSheet.create({
   },
 });
 
-
 /**
  * function for the tab navigator
  */
@@ -45,6 +45,7 @@ const Navigator = () => (
     <Tab.Screen
       name="Profile"
       component={ProfileView}
+      initialParams={{ user: 'IjzerenHein' }}
       options={{
         tabBarIcon: ({ focused }) => (
           <View>
@@ -109,6 +110,5 @@ const Navigator = () => (
   </Tab.Navigator>
 );
 
-
-
+/* eslint-disable global-require */
 export default Navigator;

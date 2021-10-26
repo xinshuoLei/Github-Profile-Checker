@@ -1,7 +1,7 @@
 /**
- * class for repo model
+ * class for follower and following model
  */
-export default class RepoModel {
+export default class FollowerAndFollowing {
   /**
      * constructor for the repo class
      * @param {*} json json repsonse from api
@@ -20,6 +20,7 @@ export default class RepoModel {
     if (userData == null) {
       return;
     }
-    this.repos = userData.repositories.nodes;
+    this.followers = userData.followers.nodes;
+    this.following = userData.following.nodes;
   }
 }

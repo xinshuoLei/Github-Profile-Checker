@@ -1,7 +1,9 @@
 import { Alert } from 'react-native';
 
+const AUTH = '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';
+
 const QUERY = `{
-        user(login: "IjzerenHein") {
+        user(login: "{:USER_LOGIN:}") {
             avatarUrl
             login
             bio
@@ -11,10 +13,20 @@ const QUERY = `{
             bio
             websiteUrl
             createdAt
-            followers {
+            followers(first: 100) {
+              nodes {
+                avatarUrl
+                name
+                login
+              }
               totalCount
             }
-            following {
+            following(first: 100) {
+              nodes {
+                avatarUrl
+                name
+                login
+              }
               totalCount
             }
             repositories (first: 100){
@@ -22,9 +34,8 @@ const QUERY = `{
               nodes {
                 name
                 owner {
-                  ... on User {
-                    login
-                  }
+                  login
+                  avatarUrl
                 }
                 description
               }
@@ -32,9 +43,10 @@ const QUERY = `{
         }
     }`;
 
-const ApiRequest = async () => {
+const ApiRequest = async (user) => {
   // OAuth token
   const url = 'https://api.github.com/graphql';
+  const queryWithUser = QUERY.replace(/\n/g, ' ').replace('{:USER_LOGIN:}', user);
   let jsonData;
   await fetch(url, {
     method: 'post',
@@ -44,7 +56,7 @@ const ApiRequest = async () => {
       // AUTH is a constant for token
       Authorization: `bearer ${AUTH}`,
     },
-    body: JSON.stringify({ query: QUERY }),
+    body: JSON.stringify({ query: queryWithUser }),
   })
     .then((response) => response.json())
     .then((json) => {

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import Navigator from './Navigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Navigator from './Navigator';
+import ProfileView from './view/ProfileView';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -12,6 +13,10 @@ export default function App() {
           name="Navigator"
           component={Navigator}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="User Profile"
+          component={ProfileView}
         />
       </Stack.Navigator>
     </NavigationContainer>

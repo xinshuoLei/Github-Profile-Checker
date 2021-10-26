@@ -1,7 +1,8 @@
+/* eslint-disable global-require */
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import {
-  Text, View, ScrollView, FlatList, StyleSheet, Dimensions, Image,
+  Text, View, ScrollView, FlatList, StyleSheet, Dimensions, Image, TouchableOpacity,
 } from 'react-native';
 import ApiRequest from '../model/APIRequest';
 import RepoModel from '../model/RepoModel';
@@ -36,12 +37,18 @@ const repoStyle = StyleSheet.create({
     marginLeft: 15,
     borderRadius: 25 / 2,
   },
+  link: {
+    width: 15,
+    height: 15,
+    marginLeft: 5,
+    tintColor: '#0645AD',
+  },
 });
 
 /**
 * The screen for Repos
 */
-const RepoView = () => {
+const RepoView = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -58,6 +65,11 @@ const RepoView = () => {
         <Text style={{ fontSize: 18, marginLeft: 15, fontWeight: 'bold' }}>{item.name}</Text>
         <Image source={{ uri: item.owner.avatarUrl }} style={repoStyle.avatar} />
         <Text style={repoStyle.owner}>{item.owner.login}</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('User Profile', { user: item.owner.login })}
+        >
+          <Image source={require('../assets/link.png')} style={repoStyle.link} />
+        </TouchableOpacity>
       </View>
       <View style={{ width: Dimensions.get('window').width - 15 }}>
         <Text style={{ fontSize: 13, marginLeft: 15, marginTop: 10 }}>{item.description}</Text>
@@ -84,3 +96,4 @@ const RepoView = () => {
 };
 
 export default RepoView;
+/* eslint-enable global-require */

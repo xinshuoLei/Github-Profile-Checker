@@ -24,7 +24,7 @@ const FollowerView = ({navigation}) => {
 
   const renderItem = ({item}) => {
     return (
-      <View style = {followerStyle.repoView}>
+      <View style = {followerStyle.oneFollowerView}>
         <Image source={{ uri: item.avatarUrl }} style={followerStyle.avatar} />
         <Text style = {{fontSize: 20, marginLeft: 15, fontWeight: 'bold'}}>{item.login}</Text>
         <TouchableOpacity
@@ -58,7 +58,7 @@ const FollowerView = ({navigation}) => {
  * style for components in profile view
  */
 const followerStyle = StyleSheet.create({
-  repoView: {
+  oneFollowerView: {
     flexDirection : 'row', 
     height: 75, 
     width : Dimensions.get('window').width,

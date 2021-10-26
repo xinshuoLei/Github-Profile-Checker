@@ -20,6 +20,6 @@ export default class RepoModel {
     if (userData == null) {
       return;
     }
-    this.repos = userData.repositories.node;
+    this.repos = userData.repositories.nodes;
   }
 }

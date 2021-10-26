@@ -35,9 +35,8 @@ const QUERY = `{
               nodes {
                 name
                 owner {
-                  ... on User {
-                    login
-                  }
+                  login
+                  avatarUrl
                 }
                 description
               }

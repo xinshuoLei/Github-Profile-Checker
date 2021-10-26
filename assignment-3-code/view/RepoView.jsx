@@ -27,6 +27,7 @@ const RepoView = ({navigation}) => {
       <View style = {repoStyle.repoView}>
         <View style = {repoStyle.singleView}>
           <Text style = {{fontSize: 18, marginLeft: 15, fontWeight: 'bold'}}>{item.name}</Text>
+          <Image source={{ uri: item.owner.avatarUrl }} style={repoStyle.avatar} />
           <Text style = {repoStyle.owner}>{item.owner.login}</Text>
         </View>
         <View style = {{width : Dimensions.get('window').width - 15}}>
@@ -79,8 +80,14 @@ const repoStyle = StyleSheet.create({
   },
   owner: {
     fontSize: 13, 
-    marginLeft: 15,
+    marginLeft: 10,
     color: '#0645AD'
+  },
+  avatar : {
+    width: 25, 
+    height: 25, 
+    marginLeft: 15, 
+    borderRadius: 25 / 2
   }
 });
 

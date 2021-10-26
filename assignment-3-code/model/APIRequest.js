@@ -2,7 +2,6 @@ import { Alert } from 'react-native';
 
 const AUTH = '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';
 
-
 const QUERY = `{
         user(login: "{:USER_LOGIN:}") {
             avatarUrl
@@ -47,8 +46,7 @@ const QUERY = `{
 const ApiRequest = async (user) => {
   // OAuth token
   const url = 'https://api.github.com/graphql';
-  const userLogin = "IjzerenHein"
-  const query_with_user = QUERY.replace(/\n/g, ' ').replace('{:USER_LOGIN:}', user);
+  const queryWithUser = QUERY.replace(/\n/g, ' ').replace('{:USER_LOGIN:}', user);
   let jsonData;
   await fetch(url, {
     method: 'post',
@@ -58,17 +56,16 @@ const ApiRequest = async (user) => {
       // AUTH is a constant for token
       Authorization: `bearer ${AUTH}`,
     },
-    body: JSON.stringify({ query: query_with_user }),
+    body: JSON.stringify({ query: queryWithUser }),
   })
     .then((response) => response.json())
     .then((json) => {
       jsonData = json;
-      console.log(json)
     })
     .catch((error) => {
-      Alert.alert(error)
+      Alert.alert(error);
     });
   return jsonData;
-}
+};
 
 export default ApiRequest;
